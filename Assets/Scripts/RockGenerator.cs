@@ -15,8 +15,10 @@ public class RockGenerator : MonoBehaviour
     int  bomb = 3;
     int num;
 
+    // 
+
     // 時間を計測(敵生成間隔)
-    float timelapse;
+    float timelapse; 
 
     // 時間を計測(ボムの持続時間)
     float lasting_time;
@@ -52,19 +54,19 @@ public class RockGenerator : MonoBehaviour
 
         num=Random.Range(0,3);
         if(lasting_time > 3.0f){
-            generations = 5 ;
+            generations = 2 ;
             emergency.SetActive(false);
         }
 
         if (timelapse > interval ){
 
-           if(num == 0){
+            if(num == 0){
             // 指定の数だけ敵を生成する
             for(int i = 0; i < generations; i++){
                 Instantiate (rockPrefab, new Vector3 (-2.5f + 5 * Random.value, 6, 0), Quaternion.identity);
             }
-           }
-           if(num==1){
+            }
+            if(num==1){
                 Instantiate (Vaccine, new Vector3 (-2.5f + 5 * Random.value, 6, 0), Quaternion.identity);
             }
             /*if(num==2){
