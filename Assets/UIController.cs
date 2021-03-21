@@ -6,10 +6,10 @@ public class UIController : MonoBehaviour {
 
 	int score = 0;
 	GameObject scoreText;
-    GameObject gameOverText;
+    GameObject emergencyText;
 
-    public void GameOver(){
-		this.gameOverText.GetComponent<Text>().text = "GameOver";
+    public void Emergency(){
+		this.emergencyText.GetComponent<Text>().text = "緊急事態宣言";
 	}
 
 
@@ -20,7 +20,7 @@ public class UIController : MonoBehaviour {
     // Use this for initialization
 	void Start () {
 		this.scoreText = GameObject.Find ("Score");
-        this.gameOverText = GameObject.Find ("GameOver");
+        this.emergencyText = GameObject.Find ("Emergency");
 	}
 
 	void Update () {
