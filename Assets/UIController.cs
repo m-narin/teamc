@@ -6,21 +6,19 @@ public class UIController : MonoBehaviour {
 
 	int score = 0;
 	GameObject scoreText;
-    GameObject gameOverText;
+	GameObject gameOverText;
 
-    public void GameOver(){
+	public void GameOver() {
 		this.gameOverText.GetComponent<Text>().text = "GameOver";
 	}
 
-
-	public void AddScore(){
+	public void AddScore() {
 		this.score += 10;
 	}
 
-    // Use this for initialization
 	void Start () {
 		this.scoreText = GameObject.Find ("Score");
-        this.gameOverText = GameObject.Find ("GameOver");
+		this.gameOverText = GameObject.Find ("GameOver");
 	}
 
 	void Update () {
