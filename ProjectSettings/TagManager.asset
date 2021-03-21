@@ -4,9 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - sanso
   - vaccine
   - corona
+=======
+  - vaccine
+  - hakkekkyuu
+  - zi
+>>>>>>> origin/feature/rankings
   layers:
   - Default
   - TransparentFX

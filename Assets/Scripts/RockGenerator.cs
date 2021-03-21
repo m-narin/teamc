@@ -20,8 +20,6 @@ public class RockGenerator : MonoBehaviour
     // 時間を計測(敵生成間隔)
     float timelapse; 
 
-    // 時間を計測(ボムの持続時間)
-    float lasting_time;
 
     // 指定時間ごとに敵生成
     float interval = 1.0f;
@@ -30,7 +28,8 @@ public class RockGenerator : MonoBehaviour
     int generations = 2;
     int vaccinegeneraitions =1;
 
-    public GameObject emergency;
+  // 時間を計測(敵生成間隔)
+  float timelapse;
 
     // Start is called before the first frame update
     void Start()
@@ -44,13 +43,14 @@ public class RockGenerator : MonoBehaviour
     //     Instantiate (rockPrefab, new Vector3 (-2.5f + 5 * Random.value, 6, 0), Quaternion.identity);
     // }
 
-    // Update is called once per frame
-    void Update()
-    {
+  // 指定時間ごとに敵生成
+  float interval = 1.0f;
 
-        lasting_time += Time.deltaTime;
+  // 一度の敵生成数
+  int generations = 2;
+  int vaccinegeneraitions = 1;
 
-        timelapse += Time.deltaTime;
+  public GameObject emergency;
 
         num=Random.Range(0,3);
         if(lasting_time > 3.0f){
@@ -58,7 +58,7 @@ public class RockGenerator : MonoBehaviour
             emergency.SetActive(false);
         }
 
-        if (timelapse > interval ){
+    lasting_time += Time.deltaTime;
 
             if(num == 0){
             // 指定の数だけ敵を生成する
@@ -79,18 +79,18 @@ public class RockGenerator : MonoBehaviour
 
             timelapse = 0.0f;
         }
+        if (num == 3)
+        {
+          Instantiate(sansomasuku, new Vector3(-2.5f + 5 * Random.value, 6, 0), Quaternion.identity);
 
-        // bombが残っているとき, Enterを押すと, bombが一つ減る
-        if (bomb > 0){
+        }
 
-            if (Input.GetKeyDown (KeyCode.Return)) {
-                bomb -= 1;
-                
-                // 敵生成数が減る
-                generations = 1;
+        timelapse = 0.0f;
+      }
 
-                // 持続時間初期化
-                lasting_time = 0.0f;
+      // bombが残っているとき, Enterを押すと, bombが一つ減る
+      if (bomb > 0)
+      {
 
                 emergency.SetActive(true);
             }

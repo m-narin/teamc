@@ -4,6 +4,7 @@ using System.Collections;
 public class BulletController : MonoBehaviour {
 
 	public GameObject explosionPrefab;
+	// Unityでタグ付のようなことができる。
 
 	void Update () {
 		transform.Translate (0, 0.2f, 0);
